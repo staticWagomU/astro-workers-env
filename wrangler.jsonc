@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "etude-astro-workers-env",
+	"name": "astro-workers-env",
 	"main": "./dist/_worker.js/index.js",
 	"compatibility_date": "2025-04-14",
 	"compatibility_flags": [
@@ -16,7 +16,7 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -34,7 +34,21 @@
 	 * Environment Variables
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 	 */
-	// "vars": { "MY_VARIABLE": "production_value" },
+	"vars": {
+		"NO_INDEX": "0"
+	},
+	"env": {
+		"staging": {
+			"vars": {
+				"NO_INDEX": "1"
+			}
+		},
+		"production": {
+			"vars": {
+				"NO_INDEX": "1"
+			}
+		}
+	}
 	/**
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/

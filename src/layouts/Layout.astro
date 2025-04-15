@@ -1,7 +1,21 @@
+---
+// import { STATIC } from 'astro:env/client';
+import { loadEnv } from 'vite';
+
+const { NO_INDEX } = loadEnv('', process.cwd(), '');
+
+console.log('\n========== Layout.astro ==========');
+// console.log(`STATIC: ${STATIC}`);
+console.log(`NO_INDEX(loadEnv): ${NO_INDEX}`);
+console.log(`import.meta.env.NO_INDEX: ${import.meta.env.NO_INDEX}`);
+console.log('==================================')
+---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		{NO_INDEX && <meta name="robots" content="noindex" />}
+		{NO_INDEX && <meta name="googlebot" content="noindex" />}
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
