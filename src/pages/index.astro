@@ -1,11 +1,21 @@
 ---
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+const STATIC1 = process.env.VITE_STATIC as string;
+const STATIC2 = import.meta.env.VITE_STATIC as string;
+
+console.log(
+  '\n========== Layout.astro ==========\n',
+  `import.meta.env.VITE_STATIC: ${import.meta.env.VITE_STATIC}\n`,
+  `process.env.VITE_STATIC    : ${process.env.VITE_STATIC}`,
+  '\n==================================');
+
+const NO_INDEX = [STATIC1, STATIC2].includes('true');
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  {NO_INDEX ? <span>こりゃローカルじゃ</span> : <span>こりゃCloudflare workersじゃ</span>}
 </Layout>
