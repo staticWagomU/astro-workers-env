@@ -37,14 +37,12 @@
  	"env": {
  		"staging": {
  			"vars": {
- 				"VITE_STATIC": "false",
         "NODE_VERSION": "22.3.0",
         "PNPM_VERSION": "9.12.3"
  			}
  		},
  		"production": {
  			"vars": {
- 				"VITE_STATIC": "false",
         "NODE_VERSION": "22.3.0",
         "PNPM_VERSION": "9.12.3"
  			}
