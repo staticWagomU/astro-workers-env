@@ -20,8 +20,8 @@ const NO_INDEX = [STATIC1, STATIC2].includes('true');
 <Layout>
   {NO_INDEX ? <span>こりゃローカルじゃ</span> : <span>こりゃCloudflare workersじゃ</span>}
   <ul>
-    <li>import.env.VITE_STATIC: {import.meta.env.VITE_STATIC}</li>
-    <li>process.env.VITE_STATIC: {process.env.VITE_STATIC}</li>
+    <li>import.env.VITE_STATIC: {STATIC1}</li>
+    <li>process.env.VITE_STATIC: {STATIC2}</li>
     <!-- <li>astro:env/server VITE_STATIC: {VITE_STATIC}</li> -->
   </ul>
 </Layout>
