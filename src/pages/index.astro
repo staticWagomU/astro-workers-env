@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import  { VITE_STATIC } from 'astro:env/server';
 const STATIC1 = process.env.VITE_STATIC as string;
 const STATIC2 = import.meta.env.VITE_STATIC as string;
 
 console.log(
   '\n========== index.astro ==========\n',
-  `import.meta.env.VITE_STATIC: ${import.meta.env.VITE_STATIC}\n`,
-  `process.env.VITE_STATIC    : ${process.env.VITE_STATIC}`,
-  '\n=================================');
+  `import.meta.env.VITE_STATIC : ${import.meta.env.VITE_STATIC}\n`,
+  `process.env.VITE_STATIC     : ${process.env.VITE_STATIC}\n`,
+  `astro:env/server VITE_STATIC: ${VITE_STATIC}\n`,
+  '==================================');
 
 const NO_INDEX = [STATIC1, STATIC2].includes('true');
 
@@ -20,5 +22,6 @@ const NO_INDEX = [STATIC1, STATIC2].includes('true');
   <ul>
     <li>import.env.VITE_STATIC: {import.meta.env.VITE_STATIC}</li>
     <li>process.env.VITE_STATIC: {process.env.VITE_STATIC}</li>
+    <li>astro:env/server VITE_STATIC: {VITE_STATIC}</li>
   </ul>
 </Layout>
