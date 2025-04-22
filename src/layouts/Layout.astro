@@ -1,5 +1,5 @@
 ---
-import  { VITE_STATIC } from 'astro:env/server';
+// import  { VITE_STATIC } from 'astro:env/server';
 // const { env } = Astro.locals.runtime;
 const STATIC1 = process.env.VITE_STATIC as string;
 /* Cannot destructure property 'env' of 'Astro2.locals.runtime' as it is undefined.
@@ -18,10 +18,10 @@ console.log(
   `import.meta.env.VITE_STATIC : ${import.meta.env.VITE_STATIC}\n`,
   // `env.VITE_STATIC            : ${env.VITE_STATIC}\n`,
   `process.env.VITE_STATIC     : ${process.env.VITE_STATIC}\n`,
-  `astro:env/server VITE_STATIC: ${VITE_STATIC}\n`,
+  // `astro:env/server VITE_STATIC: ${VITE_STATIC}\n`,
   '==================================');
 
-  const NO_INDEX = [VITE_STATIC, STATIC1/*, STATIC2 */, STATIC3].includes('true');
+  const NO_INDEX = [/*VITE_STATIC, */STATIC1/*, STATIC2 */, STATIC3].includes('true');
 ---
 <!doctype html>
 <html lang="en">

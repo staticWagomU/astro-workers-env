@@ -19,11 +19,11 @@ const STATIC_BUILD = STATIC === 'true';
 
 // https://astro.build/config
 export default defineConfig({
-  env: {
-    schema: {
-      VITE_STATIC: envField.string({ context: 'server', access: 'public' }),
-    },
-  },
+  // env: {
+  //   schema: {
+  //     VITE_STATIC: envField.string({ context: 'server', access: 'public' }),
+  //   },
+  // },
   output: STATIC_BUILD ? 'static' : 'server',
   adapter: STATIC_BUILD ? undefined : cloudflare({
     platformProxy: {
