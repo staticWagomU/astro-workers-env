@@ -1,14 +1,13 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 const STATIC1 = process.env.VITE_STATIC as string;
 const STATIC2 = import.meta.env.VITE_STATIC as string;
 
 console.log(
-  '\n========== Layout.astro ==========\n',
+  '\n========== index.astro ==========\n',
   `import.meta.env.VITE_STATIC: ${import.meta.env.VITE_STATIC}\n`,
   `process.env.VITE_STATIC    : ${process.env.VITE_STATIC}`,
-  '\n==================================');
+  '\n=================================');
 
 const NO_INDEX = [STATIC1, STATIC2].includes('true');
 
@@ -18,4 +17,8 @@ const NO_INDEX = [STATIC1, STATIC2].includes('true');
 
 <Layout>
   {NO_INDEX ? <span>こりゃローカルじゃ</span> : <span>こりゃCloudflare workersじゃ</span>}
+  <ul>
+    <li>import.env.VITE_STATIC: ${import.meta.env.VITE_STATIC}</li>
+    <li>process.env.VITE_STATIC: ${process.env.VITE_STATIC}</li>
+  </ul>
 </Layout>
