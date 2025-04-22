@@ -1,14 +1,25 @@
 ---
-const { env } = Astro.locals.runtime;
-const STATIC1 = process.env.STATIC || 'false';
-const STATIC2 = env.STATIC || 'false';
+// const { env } = Astro.locals.runtime;
+const STATIC1 = process.env.VITE_STATIC || 'false';
+/* Cannot destructure property 'env' of 'Astro2.locals.runtime' as it is undefined.
+ * Stack trace:
+ *   at file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/pages/index.astro.mjs?time=1745331445395:47:11
+ *   at AstroComponentInstance.init (file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/chunks/astro/server_CiuSlKpz.mjs:1410:29)
+ *   at Object.render (file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/chunks/astro/server_CiuSlKpz.mjs:1804:23)
+ *   at file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/chunks/astro/server_CiuSlKpz.mjs:1003:18
+ *   at createBufferedRenderer (file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/chunks/astro/server_CiuSlKpz.mjs:734:10)
+ */
+// const STATIC2 = env.VITE_STATIC || 'false';
+const STATIC3 = import.meta.env.VITE_STATIC || 'false';
 
-console.log('\n========== Layout.astro ==========');
-console.log(`STATIC1: ${STATIC1}`);
-console.log(`STATIC2: ${STATIC2}`);
-console.log('==================================')
+console.log(
+  '\n========== Layout.astro ==========\n',
+  `import.meta.env.VITE_STATIC: ${import.meta.env.VITE_STATIC}\n`,
+  // `env.VITE_STATIC            : ${env.VITE_STATIC}`,
+  `process.env.VITE_STATIC    : ${process.env.VITE_STATIC}`,
+  '\n==================================');
 
-const NO_INDEX = env.NO_INDEX === 'true' || env.NO_INDEX === true;
+  const NO_INDEX = STATIC1 === 'true' /* || STATIC2 === 'true' */ || STATIC3 === 'true' || 'false';
 ---
 <!doctype html>
 <html lang="en">
