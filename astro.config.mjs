@@ -9,11 +9,11 @@ const STATIC_BUILD = STATIC === 'true';
 
 // https://astro.build/config
 export default defineConfig({
-  env: {
-    schema: {
-      STATIC: envField.boolean({ context: 'client', access: 'public' }),
-    },
-  },
+  // env: {
+  //   schema: {
+  //     STATIC: envField.boolean({ context: 'client', access: 'public' }),
+  //   },
+  // },
   output: STATIC_BUILD ? 'static' : 'server',
   adapter: STATIC_BUILD ? undefined : cloudflare({
     platformProxy: {
