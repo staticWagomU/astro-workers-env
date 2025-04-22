@@ -34,21 +34,6 @@
 	 * Environment Variables
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 	 */
-	"vars": {
-		"NO_INDEX": "0"
-	},
-	"env": {
-		"staging": {
-			"vars": {
-				"NO_INDEX": "1"
-			}
-		},
-		"production": {
-			"vars": {
-				"NO_INDEX": "1"
-			}
-		}
-	}
 	/**
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
