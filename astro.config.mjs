@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
 
-const STATIC = import.meta.env.VITE_STATIC || 'false';
+const STATIC = String(import.meta.env.VITE_STATIC);
 
 console.log(
   '\n========== astro.config.js ==========\n',

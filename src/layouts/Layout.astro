@@ -1,6 +1,6 @@
 ---
 // const { env } = Astro.locals.runtime;
-const STATIC1 = process.env.VITE_STATIC || 'false';
+const STATIC1 = process.env.VITE_STATIC as string;
 /* Cannot destructure property 'env' of 'Astro2.locals.runtime' as it is undefined.
  * Stack trace:
  *   at file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/pages/index.astro.mjs?time=1745331445395:47:11
@@ -10,7 +10,7 @@ const STATIC1 = process.env.VITE_STATIC || 'false';
  *   at createBufferedRenderer (file:///home/beige/dev/github.com/staticWagomU/astro-workers-env/dist/chunks/astro/server_CiuSlKpz.mjs:734:10)
  */
 // const STATIC2 = env.VITE_STATIC || 'false';
-const STATIC3 = import.meta.env.VITE_STATIC || 'false';
+const STATIC3 = import.meta.env.VITE_STATIC as string;
 
 console.log(
   '\n========== Layout.astro ==========\n',
@@ -19,7 +19,7 @@ console.log(
   `process.env.VITE_STATIC    : ${process.env.VITE_STATIC}`,
   '\n==================================');
 
-  const NO_INDEX = STATIC1 === 'true' /* || STATIC2 === 'true' */ || STATIC3 === 'true';
+  const NO_INDEX = [STATIC1/*, STATIC2 */, STATIC3].includes('true');
 ---
 <!doctype html>
 <html lang="en">
