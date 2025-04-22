@@ -1,14 +1,14 @@
 ---
-// import { STATIC } from 'astro:env/client';
-import { loadEnv } from 'vite';
-
-const { NO_INDEX } = loadEnv('', process.cwd(), '');
+const { env } = Astro.locals.runtime;
+const STATIC1 = process.env.STATIC || 'false';
+const STATIC2 = env.STATIC || 'false';
 
 console.log('\n========== Layout.astro ==========');
-// console.log(`STATIC: ${STATIC}`);
-console.log(`NO_INDEX(loadEnv): ${NO_INDEX}`);
-console.log(`import.meta.env.NO_INDEX: ${import.meta.env.NO_INDEX}`);
+console.log(`STATIC1: ${STATIC1}`);
+console.log(`STATIC2: ${STATIC2}`);
 console.log('==================================')
+
+const NO_INDEX = env.NO_INDEX === 'true' || env.NO_INDEX === true;
 ---
 <!doctype html>
 <html lang="en">
