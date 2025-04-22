@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "astro-workers-env",
+	"name": "etude-astro-workers-env",
 	"main": "./dist/_worker.js/index.js",
 	"compatibility_date": "2025-04-14",
 	"compatibility_flags": [
@@ -37,12 +37,16 @@
  	"env": {
  		"staging": {
  			"vars": {
- 				"VITE_STATIC": "false"
+ 				"VITE_STATIC": "false",
+        "NODE_VERSION": "22.3.0",
+        "PNPM_VERSION": "9.12.3"
  			}
  		},
  		"production": {
  			"vars": {
- 				"VITE_STATIC": "false"
+ 				"VITE_STATIC": "false",
+        "NODE_VERSION": "22.3.0",
+        "PNPM_VERSION": "9.12.3"
  			}
  		}
  	}	/**
